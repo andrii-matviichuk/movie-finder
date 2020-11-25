@@ -1,5 +1,3 @@
-//https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
-
 //URLs
 const base_url = "https://api.themoviedb.org/3/";
 const image_base_url = "https://image.tmdb.org/t/p/";

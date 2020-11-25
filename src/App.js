@@ -9,11 +9,11 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route>
-          <Home path="/" exact />
+        <Route path="/" exact>
+          <Home />
         </Route>
-        <Route>
-          <SearchResults path="/search" />
+        <Route path="/search&query=:id">
+          <SearchResults />
         </Route>
       </Switch>
     </div>

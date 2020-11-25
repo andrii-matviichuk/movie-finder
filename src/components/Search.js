@@ -6,15 +6,18 @@ import { useDispatch } from "react-redux";
 
 //Files & components
 import { findMovie } from "../actions/searchAction";
+import { useHistory } from "react-router-dom";
 
 function Search() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [searchInputValue, setSearchInputValue] = useState("");
   //Handlers
   const searchHandler = async (e) => {
     e.preventDefault();
     setSearchInputValue("");
     dispatch(findMovie(searchInputValue));
+    history.push(`/search&query=${searchInputValue.replace(" ", "+")}`);
   };
   const searchInputChangeHandler = (e) => {
     setSearchInputValue(e.target.value);
