@@ -12,7 +12,7 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/search&query=:id">
+        <Route path="/&query=:id">
           <SearchResults />
         </Route>
       </Switch>

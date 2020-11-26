@@ -2,7 +2,7 @@ import Search from "../components/Search";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <Search />
       {/* search results */}
     </div>

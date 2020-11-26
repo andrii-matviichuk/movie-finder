@@ -1,9 +1,32 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+
+//Files & components
+import { findMovie } from "../actions/searchAction";
 import Search from "../components/Search";
+import Movie from "../components/Movie";
 
 function SearchResults() {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    dispatch(findMovie(location.pathname.substring(1))); // eslint-disable-next-line
+  }, [location]);
+
+  const searchResults = useSelector((state) => state.search.searchResults);
   return (
-    <div>
-      <h1>Results</h1>
+    <div className="search-results-container">
+      <Search />
+      <div className="movie-list">
+        {searchResults &&
+          searchResults
+            .sort((a, b) => {
+              return b.popularity - a.popularity;
+            })
+            .map((movie) => <Movie key={movie.id} id={movie.id} />)}
+      </div>
     </div>
   );
 }
