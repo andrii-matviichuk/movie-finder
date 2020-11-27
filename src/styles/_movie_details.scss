@@ -1,0 +1,19 @@
+.movie-details {
+  width: 100vw;
+  color: #fff;
+  line-height: 2rem;
+  font-size: 1.5rem;
+
+  .header {
+    height: 50vh;
+  }
+
+  .description {
+    color: #333;
+  }
+
+  .cast {
+    display: flex;
+    gap: 1rem;
+  }
+}

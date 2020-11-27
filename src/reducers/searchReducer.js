@@ -10,9 +10,7 @@ const searchReducer = (state = initState, action) => {
         searchResults: action.payload.search,
       };
     default:
-      return {
-        ...state,
-      };
+      return { ...state };
   }
 };
 

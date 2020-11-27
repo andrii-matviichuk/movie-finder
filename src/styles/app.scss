@@ -4,6 +4,21 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+.card {
+}
+
 @import "./search";
 @import "./search_results";
 @import "./home";
+@import "./movie_details";

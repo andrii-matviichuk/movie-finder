@@ -8,5 +8,20 @@ export const getMovieURL = (searchInput) => {
 };
 
 export const getImgURL = (imagePath, size) => {
-  return `${image_base_url}w${size}${imagePath}`;
+  if (imagePath) {
+    return `${image_base_url}${size}${imagePath}`;
+  }
+  return null;
+};
+
+export const getMovieDetailsURL = (id) => {
+  return `${base_url}movie/${id}?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`;
+};
+
+export const getMovieCastURL = (id) => {
+  return `${base_url}movie/${id}/credits?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`;
+};
+
+export const getGenresList = () => {
+  return `${base_url}genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`;
 };

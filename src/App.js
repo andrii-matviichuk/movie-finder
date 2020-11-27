@@ -4,6 +4,7 @@ import "./styles/app.scss";
 import Home from "./pages/Home";
 import { Route, Switch } from "react-router-dom";
 import SearchResults from "./pages/SearchResults";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         </Route>
         <Route path="/&query=:id">
           <SearchResults />
+        </Route>
+        <Route path="/movie/:id">
+          <MovieDetails />
         </Route>
       </Switch>
     </div>
