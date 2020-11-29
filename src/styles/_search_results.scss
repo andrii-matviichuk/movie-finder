@@ -1,12 +1,12 @@
 .search-results-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-
+  margin: 0 2rem 3rem;
   .movie-list {
     display: flex;
+    gap: 2rem;
     flex-wrap: wrap;
-    gap: 1rem;
+    justify-content: center;
   }
   .search {
     align-self: center;
@@ -18,7 +18,12 @@
   .movie-list {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-self: center;
     gap: 1rem;
+  }
+
+  .search-results-container {
+    margin: auto;
   }
 }

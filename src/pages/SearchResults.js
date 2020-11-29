@@ -12,7 +12,11 @@ function SearchResults() {
   const location = useLocation();
 
   useEffect(() => {
-    dispatch(findMovie(location.pathname.substring(1))); // eslint-disable-next-line
+    let mounted = true;
+    if (mounted) {
+      dispatch(findMovie(location.pathname.substring(1)));
+    }
+    return () => (mounted = false); //eslint-disable-next-line
   }, [location]);
 
   const searchResults = useSelector((state) => state.search.searchResults);

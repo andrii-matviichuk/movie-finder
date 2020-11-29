@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -15,6 +19,14 @@ h4 {
   font-weight: 400;
 }
 
+.gray-text {
+  color: #737373;
+}
+
+.small-text {
+  font-size: 1rem;
+}
+
 .card {
 }
 
@@ -22,3 +34,4 @@ h4 {
 @import "./search_results";
 @import "./home";
 @import "./movie_details";
+@import "./movie";

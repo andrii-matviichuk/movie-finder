@@ -8,6 +8,8 @@
   border: 0.2rem solid #333;
   transition: all 0.3s ease;
   margin-right: 1rem;
+  background-image: linear-gradient(-60deg, #ffa7a7 0%, #e8af5f 100%);
+
   &:focus {
     box-shadow: 0 0 3pt 2pt #333;
   }

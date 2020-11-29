@@ -1,0 +1,50 @@
+.movie {
+  width: 30rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  .poster {
+    height: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: fill;
+    }
+  }
+
+  h4 {
+    margin-top: 0.2rem;
+  }
+  &:hover {
+    box-shadow: 0 1rem 2rem 0 rgba(84, 84, 84, 0.2);
+    transform: scale(1.01);
+  }
+
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movie {
+    width: 12rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    .movie-info {
+      padding: 0.8rem;
+    }
+  }
+}

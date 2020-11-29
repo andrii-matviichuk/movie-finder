@@ -18,7 +18,6 @@ function Movie({ id }) {
     const fetchGenres = async () => {
       const genresNamesData = await axios.get(getGenresList());
       setGenresNames((oldArr) => [
-        ...oldArr,
         ...getGenreNamesByIds(genresNamesData.data.genres, movieData.genre_ids),
       ]);
     };
@@ -28,7 +27,7 @@ function Movie({ id }) {
   //Get posters
   const posterImg = movieData.poster_path
     ? getImgURL(movieData.poster_path, "w200")
-    : noImage;
+    : "";
 
   //Handlers
   const movieOnClickHandler = () => {
@@ -36,13 +35,23 @@ function Movie({ id }) {
   };
   return (
     <div className="movie" onClick={movieOnClickHandler}>
-      <div className="card">
-        <img src={posterImg} alt="" />
-        <h2>{movieData.title}</h2>
+      {getImgURL(movieData.poster_path, "w200") ? (
+        <div className="poster">
+          <img src={getImgURL(movieData.poster_path, "w200")} alt="" />
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="movie-info">
+        <h2>
+          {movieData.title}
+          <span className="gray-text small-text">
+            {movieData.release_date
+              ? ` (${movieData.release_date.split("-")[0]})`
+              : ""}
+          </span>
+        </h2>
         <h3>{genresNames ? genresNames.join(",") : ""}</h3>
-        <h4>
-          {movieData.release_date ? movieData.release_date.split("-")[0] : ""}
-        </h4>
       </div>
     </div>
   );
