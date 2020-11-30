@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/" exact>
+        <Route path={["/", "/&query="]} exact>
           <Home />
         </Route>
         <Route path="/&query=:id">

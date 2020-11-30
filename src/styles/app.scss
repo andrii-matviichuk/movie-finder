@@ -5,7 +5,7 @@
 }
 
 html {
-  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background: #396afc;
 }
 
 body {
@@ -35,3 +35,4 @@ h4 {
 @import "./home";
 @import "./movie_details";
 @import "./movie";
+@import "./compare_container";

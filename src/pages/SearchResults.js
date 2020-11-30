@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { findMovie } from "../actions/searchAction";
 import Search from "../components/Search";
 import Movie from "../components/Movie";
+import CompareContainer from "../components/CompareContainer";
 
 function SearchResults() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function SearchResults() {
             })
             .map((movie) => <Movie key={movie.id} id={movie.id} />)}
       </div>
+      <CompareContainer />
     </div>
   );
 }

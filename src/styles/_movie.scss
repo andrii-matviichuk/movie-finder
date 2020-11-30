@@ -1,16 +1,16 @@
 .movie {
   width: 30rem;
-  height: 20rem;
+  height: auto;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   cursor: pointer;
   display: grid;
-  grid-template-columns: 1.5fr 2fr;
+  grid-template-columns: auto 2fr;
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+  background-color: #fff;
   .poster {
     height: 100%;
     img {
@@ -39,7 +39,7 @@
 @media screen and (max-width: 768px) {
   .movie {
     width: 12rem;
-    height: 30rem;
+    height: auto;
     display: flex;
     flex-direction: column;
     font-size: 0.8rem;
