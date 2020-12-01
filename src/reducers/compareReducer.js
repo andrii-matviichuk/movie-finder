@@ -3,6 +3,7 @@ const initState = {
   bestMovie: {},
   theMostPopularMovie: {},
   bestCast: {},
+  currentMovieDragId: null,
 };
 
 const compareReducer = (state = initState, action) => {
@@ -14,6 +15,11 @@ const compareReducer = (state = initState, action) => {
         bestMovie: action.payload.bestMovie,
         theMostPopularMovie: action.payload.theMostPopularMovie,
         bestCast: action.payload.bestCast,
+      };
+    case "UPDATE_DRAG":
+      return {
+        ...state,
+        currentMovieDragId: action.payload.currentMovieDragId,
       };
     default:
       return { ...state };

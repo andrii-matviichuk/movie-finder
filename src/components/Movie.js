@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getImgURL, getGenresList } from "../api";
 import { getGenreNamesByIds } from "../util";
+import { updateDrag } from "../actions/compareAction";
 
 function Movie({ id, size }) {
+  const dispatch = useDispatch();
   const [genresNames, setGenresNames] = useState([]);
   const history = useHistory();
 
@@ -32,6 +34,11 @@ function Movie({ id, size }) {
   const movieOnClickHandler = () => {
     history.push(`/movie/${id}`);
   };
+
+  const onDragStartHandler = () => {
+    dispatch(updateDrag(id));
+  };
+
   if (size === "small") {
     return (
       <div className="movie" onClick={movieOnClickHandler} draggable>
@@ -52,7 +59,12 @@ function Movie({ id, size }) {
     );
   } else {
     return (
-      <div className="movie" onClick={movieOnClickHandler} draggable>
+      <div
+        className="movie"
+        onDragStart={onDragStartHandler}
+        onClick={movieOnClickHandler}
+        draggable
+      >
         {getImgURL(movieData.poster_path, "w200") ? (
           <div className="poster">
             <img src={getImgURL(movieData.poster_path, "w200")} alt="" />

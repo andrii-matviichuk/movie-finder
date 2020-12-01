@@ -17,10 +17,19 @@ export const updateCompareData = (movieIds) => async (dispatch) => {
   dispatch({
     type: "UPDATE_DATA",
     payload: {
-      movieIds: [27205],
+      movieIds: movieIds,
       bestMovie: bestMovie,
       theMostPopularMovie: theMostPopularMovie,
       bestCast: bestCast,
+    },
+  });
+};
+
+export const updateDrag = (movieId) => async (dispatch) => {
+  dispatch({
+    type: "UPDATE_DRAG",
+    payload: {
+      currentMovieDragId: movieId,
     },
   });
 };

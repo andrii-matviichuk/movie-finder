@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CompareList from "./CompareList";
 import { updateCompareData } from "../actions/compareAction";
 import { useEffect } from "react";
@@ -10,16 +10,20 @@ function CompareContainer() {
 
   // eslint-disable-next-line
   useEffect(() => dispatch(updateCompareData([])), []);
+  const movieIds = useSelector((state) => state.compare.movieIds);
+  const droppedMovieId = useSelector(
+    (state) => state.compare.currentMovieDragId
+  );
 
   //Handlers
   const onDropHandler = (e) => {
-    e.preventDefault();
-    console.log(e);
+    setIsOnDrag(false);
+    movieIds.push(droppedMovieId);
+    dispatch(updateCompareData(movieIds));
   };
 
-  const onDragOverHandler = (e) => e.preventDefault();
-
   const onDragEnterHandelr = (e) => {
+    e.preventDefault();
     setIsOnDrag(true);
   };
   const onDragLeaveHandelr = (e) => {
@@ -30,8 +34,8 @@ function CompareContainer() {
       className={isOnDrag ? "compare-container hovered" : "compare-container"}
       onDragEnter={onDragEnterHandelr}
       onDragLeave={onDragLeaveHandelr}
+      onDragOver={(e) => e.preventDefault()}
       onDrop={onDropHandler}
-      onDragOver={onDragOverHandler}
     >
       <h1>CompareList</h1>
       <CompareList />

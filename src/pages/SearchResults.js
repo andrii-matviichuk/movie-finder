@@ -21,6 +21,7 @@ function SearchResults() {
   }, [location]);
 
   const searchResults = useSelector((state) => state.search.searchResults);
+
   return (
     <div className="search-results-container">
       <Search />
