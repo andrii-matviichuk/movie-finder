@@ -1,7 +1,13 @@
 .compare-container {
-  background: #fff;
+  background: rgb(255, 240, 240);
+  border-radius: 1rem;
   width: 20vw;
   height: 100%;
+  padding: 1rem;
+}
+
+.compare-list {
+  margin-top: 1rem;
 }
 
 .hovered {

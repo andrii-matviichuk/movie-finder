@@ -6,11 +6,12 @@
   transition: 0.3s;
   cursor: pointer;
   display: grid;
-  grid-template-columns: auto 2fr;
+  grid-template-columns: auto 1fr;
   align-items: center;
   text-align: center;
   overflow: hidden;
   background-color: #fff;
+
   .poster {
     height: 100%;
     img {
@@ -23,16 +24,34 @@
   h4 {
     margin-top: 0.2rem;
   }
+
+  .movie-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+  }
+
   &:hover {
     box-shadow: 0 1rem 2rem 0 rgba(84, 84, 84, 0.2);
     transform: scale(1.01);
   }
 
-  .movie-info {
+  &.small {
+    max-width: 18vw;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    width: 100%;
+    .btn {
+      margin-bottom: 1rem;
+      z-index: 2;
+    }
+
+    &:hover {
+      box-shadow: 0 1rem 2rem 0 rgba(84, 84, 84, 0.2);
+      transform: none;
+    }
   }
 }
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { getMovieDetails } from "../actions/movieAction";
 import { getImgURL } from "../api";
+import Actor from "../components/Actor";
 
 function MovieDetails() {
   const dispatch = useDispatch();
@@ -29,7 +30,13 @@ function MovieDetails() {
       <div className="description">
         <p>{movieDetails.overview}</p>
       </div>
-      <div className="cast"></div>
+      <div className="cast">
+        {movieCast
+          ? movieCast.cast.map((actor) => (
+              <Actor id={actor.id} key={actor.id} />
+            ))
+          : ""}
+      </div>
     </div>
   );
 }

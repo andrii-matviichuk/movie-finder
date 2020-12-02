@@ -1,5 +1,6 @@
 const initState = {
   searchResults: [],
+  searchHistory: [],
 };
 
 const searchReducer = (state = initState, action) => {
@@ -8,6 +9,7 @@ const searchReducer = (state = initState, action) => {
       return {
         ...state,
         searchResults: action.payload.search,
+        searchHistory: [...state.searchHistory, ...action.payload.search],
       };
     default:
       return { ...state };

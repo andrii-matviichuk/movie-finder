@@ -3,6 +3,7 @@
   color: #fff;
   line-height: 2rem;
   font-size: 1.5rem;
+  overflow: hidden;
 
   .header {
     height: 50vh;
@@ -15,5 +16,6 @@
   .cast {
     display: flex;
     gap: 1rem;
+    overflow: scroll;
   }
 }

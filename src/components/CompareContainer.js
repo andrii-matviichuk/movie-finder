@@ -2,24 +2,25 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CompareList from "./CompareList";
 import { updateCompareData } from "../actions/compareAction";
-import { useEffect } from "react";
 
 function CompareContainer() {
   const dispatch = useDispatch();
-  const [isOnDrag, setIsOnDrag] = useState(false);
+  const [isOnDrag, setIsOnDrag] = useState();
 
-  // eslint-disable-next-line
-  useEffect(() => dispatch(updateCompareData([])), []);
-  const movieIds = useSelector((state) => state.compare.movieIds);
+  const movieIdsData = useSelector((state) => state.compare.movieIds);
   const droppedMovieId = useSelector(
     (state) => state.compare.currentMovieDragId
   );
 
+  const [movieIds, setMovieIds] = useState(movieIdsData);
+
   //Handlers
   const onDropHandler = (e) => {
     setIsOnDrag(false);
-    movieIds.push(droppedMovieId);
-    dispatch(updateCompareData(movieIds));
+    if (!movieIdsData.includes(droppedMovieId))
+      movieIdsData.push(droppedMovieId);
+    dispatch(updateCompareData(movieIdsData));
+    setMovieIds(movieIdsData);
   };
 
   const onDragEnterHandelr = (e) => {
@@ -27,6 +28,7 @@ function CompareContainer() {
     setIsOnDrag(true);
   };
   const onDragLeaveHandelr = (e) => {
+    e.preventDefault();
     setIsOnDrag(false);
   };
   return (
@@ -38,7 +40,7 @@ function CompareContainer() {
       onDrop={onDropHandler}
     >
       <h1>CompareList</h1>
-      <CompareList />
+      <CompareList movieIds={movieIds} />
     </div>
   );
 }

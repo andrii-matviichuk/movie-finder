@@ -1,0 +1,20 @@
+.actor {
+  background: #fff;
+  border-radius: 1rem;
+  color: #333;
+  height: 20rem;
+  width: 25rem;
+  h4 {
+    font-size: 1.2rem;
+    padding: 0.3rem 1rem 0;
+  }
+  h5 {
+    color: #898989;
+    font-size: 1rem;
+    padding: 0 1rem 0;
+  }
+  img {
+    overflow: hidden;
+    height: 100%;
+  }
+}
