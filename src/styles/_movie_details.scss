@@ -6,16 +6,33 @@
   overflow: hidden;
 
   .header {
-    height: 50vh;
+    height: 28.5rem;
+    overflow: scroll;
+    margin: 2rem 2rem;
+    border-radius: 0.5rem;
+    h1 {
+      padding: 1rem;
+    }
+    .poster img {
+      border: 2px solid #fff;
+      margin: 0.5rem 1rem;
+    }
+    h3 {
+      padding: 1rem;
+    }
   }
 
   .description {
     color: #333;
+    margin: 2rem 2rem;
   }
 
   .cast {
     display: flex;
     gap: 1rem;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 2rem 0.5rem;
+    margin: 2rem 2rem;
   }
 }

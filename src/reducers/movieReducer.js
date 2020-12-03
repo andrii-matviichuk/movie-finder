@@ -1,5 +1,6 @@
 const initState = {
   movieDetails: [],
+  movieCast: [],
 };
 
 const movieReducer = (state = initState, action) => {

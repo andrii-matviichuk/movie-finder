@@ -72,7 +72,7 @@ function Movie({ id, size }) {
                   : ""}
               </span>
             </h2>
-            <h3>{genresNames ? genresNames.join(",") : ""}</h3>
+            <h3>{genresNames ? genresNames.join(", ") : ""}</h3>
           </div>
         )}
         <button className="btn red" onClick={removeCompareMovieHanler}>
@@ -106,7 +106,7 @@ function Movie({ id, size }) {
                 : ""}
             </span>
           </h2>
-          <h3>{genresNames ? genresNames.join(",") : ""}</h3>
+          <h3>{genresNames ? genresNames.join(", ") : ""}</h3>
         </div>
       </div>
     );

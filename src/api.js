@@ -25,3 +25,7 @@ export const getMovieCastURL = (id) => {
 export const getGenresList = () => {
   return `${base_url}genre/movie/list?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`;
 };
+
+export const getActorsMovies = (id) => {
+  return `${base_url}person/${id}/movie_credits?api_key=${process.env.REACT_APP_MOVIEDB_API_KEY}`;
+};

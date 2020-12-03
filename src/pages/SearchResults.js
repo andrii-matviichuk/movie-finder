@@ -33,7 +33,10 @@ function SearchResults() {
             })
             .map((movie) => <Movie key={movie.id} id={movie.id} />)}
       </div>
-      <CompareContainer />
+      <div className="compare-div">
+        <h4>Compare Movies</h4>
+        <CompareContainer />
+      </div>
     </div>
   );
 }

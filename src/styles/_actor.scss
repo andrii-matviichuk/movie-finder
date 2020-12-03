@@ -2,8 +2,11 @@
   background: #fff;
   border-radius: 1rem;
   color: #333;
-  height: 20rem;
-  width: 25rem;
+  height: auto;
+  min-width: 220px;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+
   h4 {
     font-size: 1.2rem;
     padding: 0.3rem 1rem 0;
@@ -14,7 +17,8 @@
     padding: 0 1rem 0;
   }
   img {
-    overflow: hidden;
-    height: 100%;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
   }
 }

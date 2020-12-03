@@ -8,8 +8,6 @@ function Actor({ id }) {
   );
   return (
     <div className="actor">
-      <h4>{actorData.original_name}</h4>
-      <h5>{actorData.character}</h5>
       <img
         src={
           actorData.profile_path
@@ -18,6 +16,8 @@ function Actor({ id }) {
         }
         alt=""
       />
+      <h4>{actorData.original_name}</h4>
+      <h5>{actorData.character}</h5>
     </div>
   );
 }

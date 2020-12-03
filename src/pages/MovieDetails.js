@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { getMovieDetails } from "../actions/movieAction";
 import { getImgURL } from "../api";
 import Actor from "../components/Actor";
+import noImage from "../img/no-image.png";
 
 function MovieDetails() {
   const dispatch = useDispatch();
@@ -25,13 +26,32 @@ function MovieDetails() {
         }}
       >
         <h1>{movieDetails.title}</h1>
-        <h3>{movieDetails.vote_average}</h3>
+        {getImgURL(movieDetails.poster_path, "w1280") ? (
+          <div className="poster">
+            <img src={getImgURL(movieDetails.poster_path, "w200")} alt="" />
+          </div>
+        ) : (
+          <div className="poster">
+            <img src={noImage} alt="" />
+          </div>
+        )}
+        <h3
+          className={
+            movieDetails.vote_average >= 7
+              ? "green"
+              : movieDetails.vote_average >= 5
+              ? "gray"
+              : "red"
+          }
+        >
+          {movieDetails.vote_average}
+        </h3>
       </div>
       <div className="description">
         <p>{movieDetails.overview}</p>
       </div>
       <div className="cast">
-        {movieCast
+        {movieCast.cast
           ? movieCast.cast.map((actor) => (
               <Actor id={actor.id} key={actor.id} />
             ))
