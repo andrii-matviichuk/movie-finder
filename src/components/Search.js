@@ -28,7 +28,7 @@ function Search() {
       <input
         className="search-input"
         type="text"
-        placeholder="Write the movie name"
+        placeholder="Movie name..."
         value={searchInputValue}
         onChange={searchInputChangeHandler}
       />

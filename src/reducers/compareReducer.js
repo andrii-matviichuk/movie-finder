@@ -1,7 +1,6 @@
 const initState = {
   movieIds: [],
   bestMovie: {},
-  theMostPopularMovie: {},
   bestCast: {},
   currentMovieDragId: null,
 };
@@ -13,7 +12,6 @@ const compareReducer = (state = initState, action) => {
         ...state,
         movieIds: action.payload.movieIds,
         bestMovie: action.payload.bestMovie,
-        theMostPopularMovie: action.payload.theMostPopularMovie,
         bestCast: action.payload.bestCast,
       };
     case "UPDATE_DRAG":

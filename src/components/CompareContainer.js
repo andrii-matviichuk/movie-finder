@@ -18,17 +18,21 @@ function CompareContainer() {
   const bestCastData = useSelector((state) => state.compare.bestCast);
   const [bestCast, setBestCast] = useState(bestCastData);
 
+  const bestMovieData = useSelector((state) => state.compare.bestMovie);
+  const [bestMovie, setBestMovie] = useState(bestMovieData);
+
+  const movieIdsData = useSelector((state) => state.compare.movieIds);
+  const [movieIds, setMovieIds] = useState(movieIdsData);
+
   useEffect(() => {
     if (dragCounter === 0) setIsOnDrag(false);
     setBestCast(bestCastData);
-  }, [dragCounter, bestCastData]);
+    setBestMovie(bestMovieData);
+  }, [dragCounter, bestCastData, bestMovieData]);
 
-  const movieIdsData = useSelector((state) => state.compare.movieIds);
   const droppedMovieId = useSelector(
     (state) => state.compare.currentMovieDragId
   );
-
-  const [movieIds, setMovieIds] = useState(movieIdsData);
 
   //Handlers
   const onDropHandler = (e) => {
@@ -39,6 +43,7 @@ function CompareContainer() {
     dispatch(updateCompareData(movieIdsData));
     setMovieIds(movieIdsData);
     setBestCast(bestCastData);
+    setBestMovie(bestMovieData);
   };
 
   const onDragEnterHandelr = (e) => {
@@ -64,6 +69,7 @@ function CompareContainer() {
             <h3>Best Movie</h3>
             <FontAwesomeIcon className="star-icon" icon={faStar} />
           </div>
+          {bestMovie >= 0 ? <Movie size="small" id={bestMovie} /> : ""}
         </div>
         <div className="best-section best-cast">
           <div className="header">
@@ -73,8 +79,15 @@ function CompareContainer() {
           </div>
           {bestCast >= 0 ? <Movie size="small" id={bestCast} /> : ""}
         </div>
+        <div className="best-section">
+          <div className="header">
+            <FontAwesomeIcon className="users-icon" icon={faUsers} />
+            <h3>Compare List</h3>
+            <FontAwesomeIcon className="users-icon" icon={faUsers} />
+          </div>
+          <CompareList movieIds={movieIds} />
+        </div>
       </div>
-      <CompareList movieIds={movieIds} />
       <div className="drop-placeholder">
         <h3>Drop movie here</h3>
         <FontAwesomeIcon
