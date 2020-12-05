@@ -6,10 +6,11 @@
   overflow: hidden;
 
   .header {
-    height: 28.5rem;
+    height: auto;
     overflow: scroll;
     margin: 2rem 2rem;
     border-radius: 0.5rem;
+    line-height: 3.5rem;
     h1 {
       padding: 1rem;
     }

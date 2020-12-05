@@ -38,6 +38,11 @@
     h3 {
       margin-top: 0.3rem;
     }
+
+    button {
+      margin-top: 1rem;
+      outline-color: #333;
+    }
   }
 
   &:hover {
@@ -50,6 +55,8 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    overflow-x: scroll;
+    overflow-y: scroll;
     .btn {
       margin-bottom: 1rem;
       z-index: 2;
@@ -64,13 +71,21 @@
 
 @media screen and (max-width: 768px) {
   .movie {
-    width: 12rem;
-    height: auto;
+    width: 18rem;
+    min-height: 28rem;
     display: flex;
     flex-direction: column;
     font-size: 0.8rem;
+    justify-content: space-around;
     .movie-info {
-      padding: 0.8rem;
+      padding: 0 0.8rem 0.2rem;
+    }
+    .poster {
+      margin-top: 0.5rem;
+    }
+    &.small {
+      max-width: 80%;
+      min-height: auto;
     }
   }
 }

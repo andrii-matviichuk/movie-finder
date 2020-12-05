@@ -1,5 +1,6 @@
 .compare-container {
-  background: rgb(255, 240, 240);
+  background: #fff;
+  box-shadow: 0.2rem 0.5rem 1rem 0.2rem rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   width: 23vw;
   height: 100%;
@@ -25,6 +26,7 @@
 
   .compare-info {
     .best-section {
+      height: auto;
       display: flex;
       flex-direction: column;
       font-size: 1.3rem;
@@ -36,9 +38,10 @@
       border-radius: 0.5rem;
       & .header {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
         width: 100%;
+        text-align: center;
       }
     }
   }
@@ -46,8 +49,28 @@
 
 .compare-list {
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .hovered {
   background: #333;
+}
+
+@media screen and (max-width: 768px) {
+  .compare-container {
+    width: 80vw;
+    height: auto;
+
+    .drop-placeholder {
+      display: none;
+    }
+
+    .compare-info {
+      .best-section {
+        width: 70vw;
+      }
+    }
+  }
 }

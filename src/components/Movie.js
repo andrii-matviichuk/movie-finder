@@ -8,7 +8,7 @@ import { updateDrag } from "../actions/compareAction";
 import { updateCompareData } from "../actions/compareAction";
 import noImage from "../img/no-image.png";
 
-function Movie({ id, size }) {
+function Movie({ id, size, scrolltoCompareContainer }) {
   const dispatch = useDispatch();
   const [genresNames, setGenresNames] = useState([]);
   const history = useHistory();
@@ -56,6 +56,14 @@ function Movie({ id, size }) {
     dispatch(updateCompareData(movieIds));
     dispatch(updateDrag(null));
     dispatch(updateDrag(id));
+  };
+
+  const addToCompareListHandler = () => {
+    if (!movieIds.includes(id)) movieIds.push(id);
+    dispatch(updateCompareData(movieIds));
+    dispatch(updateDrag(null));
+    dispatch(updateDrag(id));
+    if (window.innerWidth < 768) scrolltoCompareContainer();
   };
 
   if (size === "small") {
@@ -107,6 +115,9 @@ function Movie({ id, size }) {
             </span>
           </h2>
           <h3>{genresNames ? genresNames.join(", ") : ""}</h3>
+          <button onClick={addToCompareListHandler} className="btn green">
+            Compare
+          </button>
         </div>
       </div>
     );

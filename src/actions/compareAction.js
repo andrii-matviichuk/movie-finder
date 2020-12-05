@@ -57,7 +57,6 @@ export const updateCompareData = (movieIds) => async (dispatch) => {
   const bestMovieId = parseInt(
     Object.keys(moviePoints).find((v) => moviePoints[v] === max)
   );
-
   dispatch({
     type: "UPDATE_DATA",
     payload: {
